@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
+	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="1d1008c2-4321-4cb5-a7eb-8d974ec5f9a6" environment="${mule.env}" contentFieldsDataMasking="$..age,$..salary"/>
+	<configuration-properties doc:name="Configuration properties" doc:id="6924d9a1-14b8-4ff8-a414-1ae172e1632e" file="log.properties" />
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="27af45e8-0bfe-4370-89c8-8b4d26f53127" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="helloFlow" doc:id="11734f03-8190-4e80-9b46-48117ff58403" >
+		<http:listener doc:name="/hello" doc:id="f613f085-4e5a-4a00-bc60-11ff68a14283" config-ref="HTTP_Listener_config" path="/hello"/>
+		<set-payload value="hello Jenkin CI/CD" doc:name="hello Jenkin CI/CD" doc:id="545d0bcc-7ad5-4614-8193-3bd243c81766" />
+		<json-logger:logger doc:name="Logger" doc:id="801b7d2b-b690-42dc-8682-689291a2bda8" config-ref="JSON_Logger_Config" message="initial payload"/>
+	</flow>
+</mule>
