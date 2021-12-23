@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>hello</artifactId>
+	<artifactId>jenkins</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>hello</name>
+	<name>jenkins</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,20 +29,6 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-			<configuration>
-				<cloudHubDeployment> <uri>https://anypoint.mulesoft.com</uri>
-				 <muleVersion>${mule.version}</muleVersion>
-				  <!-- Deploy Parameter --> <username>${anypoint.username}</username> 
-				  <password>${anypoint.password} </password> 
-				  <environment>${env}</environment> 
-				  <applicationName>${appname}</applicationName> 
-				  <businessGroup>$(business}</businessGroup> 
-				  <workerType>${vCore}</workerType>
-				  <workers>${workers)</workers> 
-				  <objectStoreV2>true</objectStoreV2>
-			 </cloudHubDeployment> 
-			 <classifier>mule-application</classifier>
-		</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -58,24 +44,6 @@
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-sockets-connector</artifactId>
 			<version>1.2.2</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.connectors</groupId>
-			<artifactId>mule-amqp-connector</artifactId>
-			<version>1.6.0</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>423939fb-7b6c-41bf-8b33-0b1ef20cd230</groupId>
-			<artifactId>json-logger</artifactId>
-			<version>2.0.1</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-jms-connector</artifactId>
-			<version>1.6.3</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
